@@ -10,7 +10,7 @@ $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
-if ($message->{"text"} == '確認') {
+if ($message->{"text"} == '会社概要') {
     // 確認ダイアログタイプ
     $messageData = [
         'type' => 'template',
@@ -28,72 +28,6 @@ if ($message->{"text"} == '確認') {
                     'type' => 'message',
                     'label' => 'まあまあです',
                     'text' => 'まあまあです'
-                ],
-            ]
-        ]
-    ];
-} elseif ($message->{"text"} == 'ボタン') {
-    // ボタンタイプ
-    $messageData = [
-        'type' => 'template',
-        'altText' => 'ボタン',
-        'template' => [
-            'type' => 'buttons',
-            'title' => 'タイトルです',
-            'text' => '選択してね',
-            'actions' => [
-                [
-                    'type' => 'postback',
-                    'label' => 'webhookにpost送信',
-                    'data' => 'value'
-                ],
-                [
-                    'type' => 'uri',
-                    'label' => 'googleへ移動',
-                    'uri' => 'https://google.com'
-                ]
-            ]
-        ]
-    ];
-} elseif ($message->{"text"} == 'カルーセル') {
-    // カルーセルタイプ
-    $messageData = [
-        'type' => 'template',
-        'altText' => 'カルーセル',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-                [
-                    'title' => 'カルーセル1',
-                    'text' => 'カルーセル1です',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'webhookにpost送信',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => '美容の口コミ広場を見る',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]
-                    ]
-                ],
-                [
-                    'title' => 'カルーセル2',
-                    'text' => 'カルーセル2です',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'webhookにpost送信',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => '女美会を見る',
-                            'uri' => 'https://jobikai.com/'
-                        ]
-                    ]
                 ],
             ]
         ]
