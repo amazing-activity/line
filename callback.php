@@ -9,6 +9,8 @@ $jsonObj = json_decode($jsonString);
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
+require('Linebot.php');
+use Linebot;
 $linebot = new Linebot();
 
 
