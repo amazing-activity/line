@@ -9,6 +9,9 @@ $jsonObj = json_decode($jsonString);
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
+$linebot = new Linebot();
+
+
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if ($message->{"text"} == '会社概要') {
     // 確認ダイアログタイプ
